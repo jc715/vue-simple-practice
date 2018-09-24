@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{ fullname }}</p>
+    <p>{{ address }}</p>
+</div>
+
+<script type="text/javascript" src="../plugin/vue/vue.js"></script>
+<script>
+    var app = new Vue({
+        el : '#app',
+        data : {
+            firstname : '王',
+            lastname : '二狗',
+            province : '浙江省',
+            city : '杭州市',
+            area : '上城区'
+        },
+        computed : {
+            fullname : function () {
+                return this.firstname + this.lastname;
+            },
+            address : {
+                get : function () {
+                    return this.province + this.city + this.area;
+                },
+                set : function (newValue) {
+                    var newValueArr = newValue.split(' ');
+                    this.province = newValueArr[0];
+                    this.city = newValueArr[1];
+                    this.area = newValueArr[2];
+                }
+            }
+        }
+    })
+
+    app.address = "江苏省 常州市 武进区";
+</script>
+</body>
+</html>

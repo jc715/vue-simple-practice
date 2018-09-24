@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>*** v-once ***</p>
+<div id="v_once_div">
+    <span>数据会改变:{{ v_once_message }}</span><br/>
+    <span v-once>数据不会改变:{{ v_once_message }}</span><br/>
+    <input type="text" v-model="v_once_message" />
+</div>
+
+<p>*** v-if ***</p>
+<div id="v_if_div">
+    <p v-if="show">显示</p>
+    <p v-if="hide">不显示</p>
+</div>
+
+<div id="v_if_else_div">
+    <p v-if="falseValue">if value</p>
+    <p v-else>else value</p>
+</div>
+
+<div id="v_else_if_div">
+    <p v-if="falseValue">if value</p>
+    <p v-else-if="">v-else-if value</p>
+</div>
+
+<div id="v_for_div">
+    <table>
+        <tr v-for="p in person">
+            <td>{{ p.name }}</td>
+            <td>{{ p.age }}</td>
+        </tr>
+    </table>
+</div>
+
+<div id="v_bind_div">
+    <span v-bind:title="title">v_bind 测试</span>
+</div>
+
+<div id="v_on_div">
+    <button v-on:click="v_on_func();">方法处理器</button>
+    <button @click="v_on_func();">缩写绑定</button>
+</div>
+
+<script type="text/javascript" src="../plugin/vue/vue.js"></script>
+<script>
+    var v_once_div = new Vue({
+        el : '#v_once_div',
+        data : {
+            v_once_message : 'v-once数据内容'
+        }
+    });
+
+    var v_if_div = new Vue({
+        el : '#v_if_div',
+        data : {
+            show : true,
+            hide : false
+        }
+    });
+
+    var v_if_else_div = new Vue({
+        el : '#v_if_else_div',
+        data : {
+            falseValue : false
+        }
+    });
+
+    var v_else_if_div = new Vue({
+        el : '#v_else_if_div',
+        data : {
+            falseValue : false
+        }
+    });
+
+    var v_for_div = new Vue({
+        el : '#v_for_div',
+        data : {
+            person : [
+                {name : "张三", age : "20"},
+                {name : "李四", age : "25"},
+                {name : "王五", age : "30"}
+            ]
+        }
+    });
+
+    var v_bind_div = new Vue({
+        el : '#v_bind_div',
+        data : {
+            title : "title content"
+        }
+    });
+
+    var v_on_div = new Vue({
+        el : '#v_on_div',
+        methods : {
+            v_on_func() {
+                alert('xxx');
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

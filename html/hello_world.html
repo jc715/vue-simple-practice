@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <p>*** 数据赋值 ***</p>
+    {{ message }}
+
+    <p>*** 双向数据绑定 ***</p>
+    <input type="text" v-model="message" />
+</div>
+
+
+<script type="text/javascript" src="../plugin/vue/vue.js"></script>
+<script text="/html">
+    var app = new Vue({
+        el : '#app',
+        data : {
+            message : 'Hello World!'
+        }
+    })
+</script>
+</body>
+</html>
