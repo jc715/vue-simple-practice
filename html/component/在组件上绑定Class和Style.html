@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在组件上绑定Class和Style</title>
+
+    <style>
+        .underLine {
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app1" >
+    <my-component :class="{underLine:isShowUnderLine}" :style="{fontSize:fontSize+'px'}"></my-component>
+    <button @click="changeStyle">普通方式-改变样式2</button>
+    <button @click="computedChangeStyle()">计算属性方式-改变样式</button>
+</div>
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    new Vue ({
+        el: '#app1',
+        components: {
+            'my-component': {
+                template: '<span>我的组件</span>'
+            }
+        },
+        data: {
+            isShowUnderLine: true,
+            fontSize: 50
+        },
+        computed: {
+            computedChangeStyle: function() {
+                this.fontSize = 100;
+            }
+        },
+        methods: {
+            changeStyle : function() {
+                if (this.fontSize == 50) {
+                    this.fontSize = 100;
+                } else {
+                    this.fontSize = 50;
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

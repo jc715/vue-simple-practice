@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件</title>
+</head>
+<body>
+    <div id="app1">
+        <global_component></global_component>
+    </div>
+    <div id="app2">
+        <global_component></global_component>
+    </div>
+
+    <script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+    <script>
+        let profile = Vue.extend({
+            template : '<span>我是全局组件</span>'
+        })
+        Vue.component('global_component', profile)
+
+        new Vue({ el: '#app1' })
+        new Vue({ el: '#app2' })
+    </script>
+</body>
+</html>

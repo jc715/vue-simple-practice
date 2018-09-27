@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template标签方式组件</title>
+</head>
+<body>
+
+<div id="templateApp">
+    <template-component></template-component>
+</div>
+
+<template id="templateComponent">
+    <h3>template标签式组件</h3>
+</template>
+
+
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    new Vue({
+        el: '#templateApp',
+        components: {
+            'templateComponent': {
+                template : '#templateComponent'
+            }
+        }
+    })
+</script>
+</body>
+</html>

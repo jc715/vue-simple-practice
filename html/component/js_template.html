@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js标签方式组件</title>
+</head>
+<body>
+
+<div id="jsApp">
+    <js-component></js-component>
+</div>
+
+<script type="text/x-template" id="jsComponent">
+    <h3>js标签方式组件</h3>
+</script>
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    new Vue({
+        el: '#jsApp',
+        components: {
+            'jsComponent': {
+                template : '#jsComponent'
+            }
+        }
+    })
+</script>
+</body>
+</html>

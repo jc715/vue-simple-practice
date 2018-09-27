@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部组件</title>
+</head>
+<body>
+    <div id="app1">
+        <part-component></part-component>
+    </div>
+    <div id="app2">
+        <part-component></part-component>
+    </div>
+
+    <script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+    <script>
+        let partComponent = {
+            template: '<span>我是局部组件</span>'
+        }
+
+        new Vue({
+            el: '#app1',
+            components: {
+                'part-component': partComponent
+            }
+        })
+
+        new Vue({
+            el: '#app2'
+        })
+    </script>
+</body>
+</html>

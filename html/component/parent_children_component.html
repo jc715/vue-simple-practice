@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件</title>
+</head>
+<body>
+<div id="app1">
+    <parent-component></parent-component>
+</div>
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    let childAComponent = {
+        template: '<span>子组件-A</span>'
+    }
+
+    let childBComponent = {
+        template: '<span>子组件-B</span>'
+    }
+
+    let parentComponent = Vue.component('parent-component', {
+        template: '<div>父组件:<child-A-component></child-A-component>,<child-B-component></child-B-component></div>',
+        components : {
+            childAComponent,
+            childBComponent
+        }
+    })
+
+    new Vue({
+        'el':  app1,
+        components : {
+            parentComponent
+        }
+    });
+</script>
+</body>
+</html>
