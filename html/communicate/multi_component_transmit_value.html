@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多层组件传值</title>
+</head>
+<body>
+<div id="app">
+    <index-component :header-value="headerValue"></index-component>
+</div>
+
+<template id="headerComponent">
+    <div>{{ headerValue }}</div>
+</template>
+
+<template id="indexComponent">
+    <header-component :header-value="headerValue"></header-component>
+</template>
+
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    let headerComponent = Vue.extend({
+        template: '#headerComponent',
+        props: ['headerValue']
+    });
+    Vue.component('index-component', {
+        template: '#indexComponent',
+        components: {
+            headerComponent
+        },
+        props: ['headerValue']
+    });
+    new Vue({
+        el: '#app',
+        data: {
+            headerValue : '头部'
+        }
+    });
+</script>
+</body>
+</html>
