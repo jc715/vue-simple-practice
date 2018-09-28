@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单传值</title>
+</head>
+<body>
+
+<div id="app">
+    <child-component message="a message"></child-component>
+</div>
+
+
+<template id="childComponent">
+    <h3>{{message}}</h3>
+</template>
+
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        components: {
+            'childComponent' : {
+                template: '#childComponent',
+                props: ['message']
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
