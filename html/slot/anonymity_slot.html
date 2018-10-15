@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匿名插槽</title>
+</head>
+<body>
+<div id="app">
+    <my-slot>
+        <img src="http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"/>
+    </my-slot>
+</div>
+
+<template id="mySlot">
+    <div>
+        <h1>头部</h1>
+        <slot>这是一个插槽，可以放任何标签</slot>
+        <h1>尾部</h1>
+    </div>
+</template>
+
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+<script>
+    Vue.component('my-slot', {
+        template: '#mySlot'
+    })
+    new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义回传事件</title>
+</head>
+<body>
+
+
+<div id="app">
+    <button-counter @click-count="countTotal()"></button-counter>
+    <button-counter @click-count="countTotal()"></button-counter>
+    <button-counter @click-count="countTotal()"></button-counter>
+    <span>Total Num: {{totalNum}}</span>
+</div>
+
+
+<template id="buttonCounter">
+    <button @click="clickCount()">{{countNum}}</button>
+</template>
+
+<script type="text/javascript" src="../../plugin/vue/vue.js"></script>
+
+<script>
+    Vue.component('button-counter', {
+        template: '#buttonCounter',
+        data: function() {
+            return {
+                countNum: 0
+            }
+        },
+        methods: {
+            clickCount: function() {
+                this.countNum += 1;
+                this.$emit('click-count');
+            }
+        }
+    })
+    new Vue({
+        el: '#app',
+        data : {
+            totalNum: 0
+        },
+        methods: {
+            countTotal: function() {
+                this.totalNum += 1;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
